@@ -154,4 +154,4 @@ if CanUseSpell(myHero,_Q) == READY and ValidTarget(target, 700) and mainMenu.Har
 end
 end
 
-end)
+end
