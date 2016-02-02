@@ -1,7 +1,6 @@
 if GetObjectName(GetMyHero()) ~= "Graves" then return end
 
-PrintChat("SIMPLE MOOD | Graves", "Graves")
-PrintChat("by Erzina")
+PrintChat("Mood by Erzina")
 
 local mainMenu = Menu("ADC MAIN | Graves", "Graves")
 mainMenu:Menu("Combo", "Combo")
