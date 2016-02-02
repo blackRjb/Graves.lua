@@ -12,8 +12,7 @@ GravesMenu.Combo:Boolean("E", "Use E to mouse", true)
 GravesMenu.Combo:Boolean("R", "Use R in combo", true)
 GravesMenu.Combo:Boolean("Burst", "Burst-Combo", true)
 GravesMenu.Combo:Boolean("Burst", "Burst-E helper", true)
-GravesMenu.Combo:Boolean("Items", "Use Items", true)
-GravesMenu.Combo:Booleant("Combo1",  "Combo", string.byte(" "))
+GravesMenu.Combo:Boolean("Combo1",  "Combo", string.byte(" "))
 
 GravesMenu:Menu("Harass", "Harass")
 GravesMenu.Harass:Boolean("Q", "Use Q", true)
@@ -23,7 +22,7 @@ GravesMenu:Menu("Killsteal", "Killsteal")
 GravesMenu.Killsteal:Boolean("Q", "Killsteal with Q", true)
 GravesMenu.Killsteal:Boolean("W", "Killsteal with W", true)
 GravesMenu.Killsteal:Boolean("E", "killsteal with E", false)
-GravesMenu.Killstreal:Boolean("R", "killstreal with R", true)
+GravesMenu.Killsteal:Boolean("R", "killstreal with R", true)
 
 if Ignite ~= nil then 
 GravesMenu:Menu("Misc", "Misc")
