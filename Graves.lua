@@ -1,5 +1,7 @@
 if GetObjectName(GetMyHero()) ~= "Graves" then return end
 
+require('Inspired')
+
 local mainMenu = Menu("ADC MAIN | Graves", "Graves")
 mainMenu:Menu("Combo", "Combo")
 mainMenu.Combo:Boolean("useQ", "Use Q in combo", true)
