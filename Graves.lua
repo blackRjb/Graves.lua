@@ -1,7 +1,5 @@
 if GetObjectName(GetMyHero()) ~= "Graves" then return end
 
-PrintChat("Mood by Erzina")
-
 local mainMenu = Menu("ADC MAIN | Graves", "Graves")
 mainMenu:Menu("Combo", "Combo")
 mainMenu.Combo:Boolean("useQ", "Use Q in combo", true)
