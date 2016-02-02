@@ -1,31 +1,28 @@
 if GetObjectName(GetMyHero()) ~= "Graves" then return end
 
-require('Inspired') 
-require('DeftLib')
-require('DamageLib')
+PrintChat("SIMPLE MOOD | Graves", "Graves")
+PrintChat("by Erzina")
 
-local GravesMenu = MenuConfig("Graves", "Graves")
-GravesMenu:Menu("Combo", "Combo")
-GravesMenu.Combo:Boolean("Q", "Use Q in combo", true)
-GravesMenu.Combo:Boolean("W", "Use W" in combo , true)
-GravesMenu.Combo:Boolean("E", "Use E to mouse", true)
-GravesMenu.Combo:Boolean("R", "Use R in combo", true)
-GravesMenu.Combo:Boolean("Burst", "Burst-Combo", true)
-GravesMenu.Combo:Boolean("Burst", "Burst-E helper", true)
-GravesMenu.Combo:Boolean("Combo1",  "Combo", string.byte(" "))
-
-GravesMenu:Menu("Harass", "Harass")
-GravesMenu.Harass:Boolean("Q", "Use Q", true)
-GravesMenu.Harass:Slider("Mana", "if Mana % >", 30, 0, 80, 1)
-
-GravesMenu:Menu("Killsteal", "Killsteal")
-GravesMenu.Killsteal:Boolean("Q", "Killsteal with Q", true)
-GravesMenu.Killsteal:Boolean("W", "Killsteal with W", true)
-GravesMenu.Killsteal:Boolean("E", "killsteal with E", false)
-GravesMenu.Killsteal:Boolean("R", "killstreal with R", true)
-
+local mainMenu = Menu("ADC MAIN | Graves", "Graves")
+mainMenu:Menu("Combo", "Combo")
+mainMenu.Combo:Boolean("useQ", "Use Q in combo", true)
+mainMenu.Combo:Boolean("useW", "Use W in combo", true)
+mainMenu.Combo:Boolean("useE", "Use E to mouse", false)
+mainMenu.Combo:Boolean("useR", "Use R in combo", true)
+mainMenu.Combo:Key("Combo1", "Combo", string.byte(" "))
+-------------------------------------------------------------------------
+mainMenu:Menu("Harass", "Harass")
+mainMenu.Harass:Boolean("hQ", "Use Q", true)
+mainMenu.Harass:Slider("Mana", "if Mana % >", 30, 0, 80, 1)
+mainMenu.Harass:Key("Harass1", "Harass", string.byte("C"))
+-------------------------------------------------------------------------
+mainMenu:Menu("Killsteal", "Killsteal")
+mainMenu.Killsteal:Boolean("ksQ", "Use Q", true)
+mainMenu.Killsteal:Boolean("ksW", "Use W", true)
+mainMenu.Killsteal:Boolean("ksE", "KS-E helper", false)
+mainMenu.Killsteal:Boolean("KsR", "Use R", true)
+-------------------------------------------------------------------------
 if Ignite ~= nil then 
-GravesMenu:Menu("Misc", "Misc")
-GravesMenu.Misc:Boolean("AutoIgnite", "Auto Ignite", true) 
+mainMenu:Menu("Misc", "Misc")
+mainMenu.Misc:Boolean("AutoIgnite", "Auto Ignite", true) 
 end
-
