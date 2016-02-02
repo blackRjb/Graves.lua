@@ -1,7 +1,6 @@
 if GetObjectName(GetMyHero()) ~= "Graves" then return end
 
 require('Inspired')
-require('Deflib')
 require('DamageLib')
 
 local mainMenu = Menu("ADC MAIN | Graves", "Graves")
