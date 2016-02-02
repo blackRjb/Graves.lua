@@ -30,7 +30,7 @@ if Ignite ~= nil then
 end
 -------------------------------------------------------------------------
 -- Combo
-local comboFunction() -- NOTE: i made it a function so you can use the function in the ontick and for clean code, MORE INFORMATION ABOUT ONTICK DOWN!!! ;)
+local function comboFunction() -- NOTE: i made it a function so you can use the function in the ontick and for clean code, MORE INFORMATION ABOUT ONTICK DOWN!!! ;)
 	if mainMenu.Combo.Combo1:Value() then
 		-- Standart
 		local target = GetCurrentTarget() -- NOTE: again (like mouse) you say target but you need to say who the target is ^^
