@@ -2,6 +2,7 @@ if GetObjectName(GetMyHero()) ~= "Graves" then return end
 
 require('Inspired')
 require('DamageLib')
+require('MapPositionGOS')
 
 local mainMenu = Menu("ADC MAIN | Graves", "Graves")
 mainMenu:Menu("Combo", "Combo")
