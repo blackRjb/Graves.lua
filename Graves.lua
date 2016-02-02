@@ -27,43 +27,9 @@ mainMenu:Menu("Misc", "Misc")
 mainMenu.Misc:Boolean("AutoIgnite", "Auto Ignite", true) 
 end
 -------------------------------------------------------------------------
--- Killsteal
-if mainMenu.Killsteal.ksQ:Value() then
-for i,enemy in pairs(GetEnemyHeroes()) do
-		if CanUseSpell(myHero,_Q) == READY and ValidTarget(enemy, 1500) and mainMenu.Killsteal.ksQ:Value() and GetCurrentHP(enemy) < qDMG then
-			
-			if ValidTarget(enemy,1500) and CanUseSpell(myHero,_E) == READY and not IsInDistance(enemy, 925) and mainMenu.Killsteal.ksE:Value() then
-				local targetPos = GetOrigin(enemy)
-				CastSkillShot(_E, targetPos.x, targetPos.y, targetPos.z)
-			end
-			
-			local QPred = GetPredictionForPlayer(myHeroPos,enemy,GetMoveSpeed(enemy),2000,250,925,50,false,false)
-			if QPred.HitChance == 1 then
-				CastSkillShot(_Q,QPred.PredPos.x,QPred.PredPos.y,QPred.PredPos.z)
-			end	
-		end	
-	end
-end	
-
-if mainMenu.Killsteal.ksR:Value() then
-	for i,enemy in pairs(GetEnemyHeroes()) do
-		if CanUseSpell(myHero,_R) == READY and ValidTarget(enemy, 2300) and mainMenu.Killsteal.ksR:Value() and GetCurrentHP(enemy) < CalcDamage(myHero,enemy,(120*GetCastLevel(myHero,_R)+80+(1.2*GetBonusDmg(myHero))),0) then
-			
-			if ValidTarget(enemy,2300) and CanUseSpell(myHero,_E) == READY and not IsInDistance(enemy, 1800) and mainMenu.Killsteal.ksE:Value() then
-				local targetPos = GetOrigin(enemy)
-				CastSkillShot(_E, targetPos.x, targetPos.y, targetPos.z)
-			end			
-			
-			local RPred2 = GetPredictionForPlayer(myHeroPos,enemy,GetMoveSpeed(enemy),2000,250,1800,100,false,false)
-			if RPred2.HitChance == 1 then
-				CastSkillShot(_R,RPred2.PredPos.x,RPred2.PredPos.y,RPred2.PredPos.z)
-			end
-		end
-	end
-end
-
 -- Combo
 if mainMenu.Combo.Combo1:Value() then
+	-- Standart
 	if CanUseSpell(myHero,_E) == READY and ValidTarget(target, 950) and GotBuff(myHero, "gravesbasicattackammo2") == 0 and mainMenu.Combo.useE:Value() then
 		CastSkillShot(_E, mouse.x, mouse.y, mouse.z)
 	end
@@ -140,7 +106,7 @@ if mainMenu.Combo.Combo1:Value() then
 	end
 
 end
-
+-------------------------------------------------------------------------
 -- Harass Q
 if mainMenu.Harass.Harass1:Value() then
 	-- MoveToXYZ(mouse)
@@ -188,18 +154,4 @@ if CanUseSpell(myHero,_Q) == READY and ValidTarget(target, 700) and mainMenu.Har
 end
 end
 
-OnDraw(function(myHero)
-local target = GetCurrentTarget()
-
-if mainMenu.Drawings.drawBurst:Value() and ValidTarget(target, 1800) then
-	DrawDmgOverHpBar(target,GetCurrentHP(target),DPS,0,0xff00ff00)
-end	
-
 end)
-
-function VectorWay(A,B)
-WayX = B.x - A.x
-WayY = B.y - A.y
-WayZ = B.z - A.z
-return Vector(WayX, WayY, WayZ)
-end
